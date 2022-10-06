@@ -1,0 +1,54 @@
+{
+	"name": "@jpbm135/djs-utils",
+	"version": "0.0.0",
+	"description": "",
+	"scripts": {
+		"build:clean": "del-cli dist",
+		"build:check": "tsc --noEmit",
+		"build:esm": "swc ./src --out-dir ./dist",
+		"build": "yarn build:clean && yarn build:check && yarn build:esm",
+		"lint": "prettier --check . && eslint src --ext ts",
+		"format": "prettier --write . && eslint src --ext ts --fix",
+		"fmt": "yarn format",
+		"start": "env-cmd node --enable-source-maps dist/index.js",
+		"start:dev": "yarn build && yarn dev",
+		"dev": "env-cmd node --enable-source-maps dist/index.js",
+		"deploy:commands": "env-cmd node --enable-source-maps dist/deploy.js",
+		"migrate": "env-cmd ley",
+		"update": "yarn upgrade-interactive"
+	},
+	"type": "module",
+	"keywords": [],
+	"author": "JPBM135 <jpedrobm0@gmail.com>",
+	"license": "AGPL-3.0",
+	"private": true,
+	"dependencies": {
+		"@swc/helpers": "^0.4.11",
+		"discord.js": "^14.5.0",
+		"kleur": "^4.1.5",
+		"readdirp": "^3.6.0",
+		"reflect-metadata": "^0.1.13",
+		"tsyringe": "^4.7.0",
+		"undici": "^5.11.0"
+	},
+	"devDependencies": {
+		"@swc/cli": "^0.1.57",
+		"@swc/core": "^1.3.3",
+		"@types/node": "^18.7.23",
+		"cpy-cli": "^4.2.0",
+		"del-cli": "^5.0.0",
+		"env-cmd": "^10.1.0",
+		"eslint": "^8.22.0",
+		"eslint-config-neon": "^0.1.33",
+		"prettier": "^2.7.1",
+		"typescript": "^4.7.4",
+		"yarn": "^1.22.19"
+	},
+	"resolutions": {
+		"postgres@^3.2.4": "patch:postgres@npm:3.2.4#.yarn/patches/postgres-npm-3.2.4-9f8c755dcd.patch"
+	},
+	"engines": {
+		"node": ">=17.9.0"
+	},
+	"packageManager": "yarn@3.2.2"
+}
