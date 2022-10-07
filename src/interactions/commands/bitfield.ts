@@ -13,9 +13,10 @@ export const BitFieldCommand: CreateAPICommand = {
 			type: ApplicationCommandOptionType.Subcommand,
 			options: [
 				{
-					name: 'intents',
+					name: 'bitfield',
 					description: 'The intents to parse',
 					type: ApplicationCommandOptionType.Integer,
+					required: true,
 				},
 			],
 		},
@@ -25,9 +26,10 @@ export const BitFieldCommand: CreateAPICommand = {
 			type: ApplicationCommandOptionType.Subcommand,
 			options: [
 				{
-					name: 'permissions',
+					name: 'bitfield',
 					description: 'The permissions to parse',
-					type: ApplicationCommandOptionType.Integer,
+					type: ApplicationCommandOptionType.String,
+					required: true,
 				},
 			],
 		},

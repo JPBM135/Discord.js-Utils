@@ -1,11 +1,14 @@
 import 'reflect-metadata';
 import { Client, GatewayIntentBits, Options, Partials } from 'discord.js';
+import kleur from 'kleur';
 import { container } from 'tsyringe';
 import { loadCommands } from './client/loadCommands.js';
 import { loadEvents } from './client/loadEvents.js';
 import { EnvironmentKeys, TimeConstants } from './constants.js';
 import { logger } from './logger.js';
 import { resolveEnv } from './utils/resolveEnv.js';
+
+kleur.enabled = true;
 
 logger.info('Creating client');
 
